@@ -31,7 +31,7 @@ To set up the server:
 
       ```json
 	{
-		"Listen": "0.0.0.0:1985", // ip:port to listen to
+		"Listen": "0.0.0.0:1980", // ip:port to listen to
 		"Storage": "./storage", // specifies the root directory for update storage
 		"Projects": // an array that defines descriptions of the projects hosted:
 	      [
