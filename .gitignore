@@ -1,0 +1,6 @@
+**/*.exe
+**/*.log
+**/tls.cert
+**/tls.key
+**/*.new
+

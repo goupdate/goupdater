@@ -1,0 +1,12 @@
+{
+  "Listen": "0.0.0.0:1980", // ip:port to listen to
+  "Storage": "./storage", //path to file storage
+  "Projects": //An array that defines descriptions of the projects hosted:
+    [
+      {
+  	"Name": "TestProject", 
+  	"Key": "i can upload and check for updates with this key", 
+  	"Branches": [ "main", "test" ]
+      }
+    ]
+}
