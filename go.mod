@@ -1,4 +1,4 @@
-module goupdater
+module github.com/goupdate/goupdater
 
 go 1.20
 
