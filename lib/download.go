@@ -17,7 +17,7 @@ import (
 )
 
 // newsz, newcrc - should be
-func (u *ClientInfo) DownloadAndReplaceMe() error {
+func (u *ClientInfo) DownloadAndReplaceMe(timeout time.Duration) error {
 	item, err := u.info()
 	if err != nil {
 		return err
@@ -27,7 +27,7 @@ func (u *ClientInfo) DownloadAndReplaceMe() error {
 		TLSConfig: &tls.Config{
 			InsecureSkipVerify: true,
 		},
-		ReadTimeout:  time.Second * 5,
+		ReadTimeout:  timeout,
 		WriteTimeout: time.Minute * 5,
 	}
 

@@ -1,11 +1,14 @@
 package goupdater
 
 import (
+	"time"
+
 	"github.com/goupdate/goupdater/lib"
 )
 
 type updater struct {
 	lib.ClientInfo
+	timeout time.Duration
 }
 
 func New(serverIpPort, key, project, branch string) *updater {
@@ -16,6 +19,7 @@ func New(serverIpPort, key, project, branch string) *updater {
 			Project: project,
 			Branch:  branch,
 		},
+		timeout: 2*time.Minute,
 	}
 }
 
@@ -24,7 +28,7 @@ func (u *updater) Check() (bool, error) {
 }
 
 func (u *updater) DownloadAndReplaceMe() error {
-	return u.ClientInfo.DownloadAndReplaceMe()
+	return u.ClientInfo.DownloadAndReplaceMe(u.timeout)
 }
 
 func (u *updater) Upload(branch string) error {
@@ -34,4 +38,8 @@ func (u *updater) Upload(branch string) error {
 //set verbose to b
 func (u *updater) Verbose(b bool) {
 	u.ClientInfo.Verbose = b
+}
+
+func (u *updater) SetDownloadTimeout(t time.Duration) {
+	u.timeout = t
 }
