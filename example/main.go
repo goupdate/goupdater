@@ -15,7 +15,7 @@ func main() {
 	exitnow := make(chan bool)
 
 	if *ea {
-		Update(*upload)
+		Update(*upload, exitnow)
 		if *upload {
 			fmt.Println("uploaded to server")
 			return

@@ -10,7 +10,7 @@ import (
 var BRANCH = "main"
 var PROJECT = "some-project"
 
-func Update(uploadthis bool) {
+func Update(uploadthis bool, exitnow chan bool) {
 	var update = goupdater.New("127.0.0.1:1980",
 		"key to upload and download",
 		PROJECT,
@@ -42,6 +42,7 @@ func Update(uploadthis bool) {
 				err := update.DownloadAndReplaceMe()
 				if err == nil {
 					fmt.Println("i was upgraded")
+					exitnow <- true
 					return
 				} else {
 					fmt.Printf("error during upgrade: %s\n", err.Error())
