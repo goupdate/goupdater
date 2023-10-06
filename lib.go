@@ -1,7 +1,7 @@
 package goupdater
 
 import (
-	"goupdater/lib"
+	"github.com/goupdate/goupdater/lib"
 )
 
 type updater struct {

@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 
-	"goupdater"
-	//"github.com/goupdate/goupdater"
+	//"goupdater"
+	"github.com/goupdate/goupdater"
 )
 
 var RELEASE = "true" //set this to false via go build if dont want to run goupdater
